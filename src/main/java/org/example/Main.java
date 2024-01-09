@@ -2,16 +2,18 @@ package org.example;
 
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
-import org.example.threads.CompletableFutureSandbox;
+import org.example.threads.CompletableFutureSandboxImpl;
+import org.example.threads.PubSubSandboxImpl;
 
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger();
     public static void main(String[] args) throws InterruptedException {
-        CompletableFutureSandbox completableFutureSandbox = new CompletableFutureSandbox();
-        completableFutureSandbox.asyncTest();
+//        Sandbox completableFutureSandbox = new CompletableFutureSandboxImpl();
+        new PubSubSandboxImpl().runner();
+//        logTest();
     }
 
-    private void logTest() {
+    private static void logTest() {
         LOGGER.trace("It is a trace logger.");
         LOGGER.debug("It is a debug logger.");
         LOGGER.info("It is a info logger.");
